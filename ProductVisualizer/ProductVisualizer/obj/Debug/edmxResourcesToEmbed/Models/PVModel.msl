@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProductVisualizerModelStoreContainer" CdmEntityContainer="ProductVisualizerEntities">
+    <EntitySetMapping Name="PV_BIMUse">
+      <EntityTypeMapping TypeName="ProductVisualizerModel.PV_BIMUse">
+        <MappingFragment StoreEntitySet="PV_BIMUse">
+          <ScalarProperty Name="BIMUsePage" ColumnName="BIMUsePage" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PV_GEO">
+      <EntityTypeMapping TypeName="ProductVisualizerModel.PV_GEO">
+        <MappingFragment StoreEntitySet="PV_GEO">
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PV_Industry">
+      <EntityTypeMapping TypeName="ProductVisualizerModel.PV_Industry">
+        <MappingFragment StoreEntitySet="PV_Industry">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PV_Joiner">
+      <EntityTypeMapping TypeName="ProductVisualizerModel.PV_Joiner">
+        <MappingFragment StoreEntitySet="PV_Joiner">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Tables" ColumnName="Tables" />
+          <ScalarProperty Name="Id2" ColumnName="Id2" />
+          <ScalarProperty Name="Id1" ColumnName="Id1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PV_Linker">
+      <EntityTypeMapping TypeName="ProductVisualizerModel.PV_Linker">
+        <MappingFragment StoreEntitySet="PV_Linker">
+          <ScalarProperty Name="BIMUseId" ColumnName="BIMUseId" />
+          <ScalarProperty Name="PhaseId" ColumnName="PhaseId" />
+          <ScalarProperty Name="PersonaId" ColumnName="PersonaId" />
+          <ScalarProperty Name="IndustryId" ColumnName="IndustryId" />
+          <ScalarProperty Name="GEOId" ColumnName="GEOId" />
+          <ScalarProperty Name="SoftwareId" ColumnName="SoftwareId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PV_Persona">
+      <EntityTypeMapping TypeName="ProductVisualizerModel.PV_Persona">
+        <MappingFragment StoreEntitySet="PV_Persona">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PV_Phase">
+      <EntityTypeMapping TypeName="ProductVisualizerModel.PV_Phase">
+        <MappingFragment StoreEntitySet="PV_Phase">
+          <ScalarProperty Name="Standard" ColumnName="Standard" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PV_Software">
+      <EntityTypeMapping TypeName="ProductVisualizerModel.PV_Software">
+        <MappingFragment StoreEntitySet="PV_Software">
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="TrainingCourses" ColumnName="TrainingCourses" />
+          <ScalarProperty Name="ProductPage" ColumnName="ProductPage" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Features" ColumnName="Features" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllDetails">
+      <EntityTypeMapping TypeName="ProductVisualizerModel.AllDetail">
+        <MappingFragment StoreEntitySet="AllDetails">
+          <ScalarProperty Name="BIMUse" ColumnName="BIMUse" />
+          <ScalarProperty Name="Phase" ColumnName="Phase" />
+          <ScalarProperty Name="Persona" ColumnName="Persona" />
+          <ScalarProperty Name="Industry" ColumnName="Industry" />
+          <ScalarProperty Name="GEO" ColumnName="GEO" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="TrainingCourses" ColumnName="TrainingCourses" />
+          <ScalarProperty Name="ProductPage" ColumnName="ProductPage" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Features" ColumnName="Features" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

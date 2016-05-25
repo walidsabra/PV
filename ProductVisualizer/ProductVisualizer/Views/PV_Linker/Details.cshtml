@@ -1,0 +1,67 @@
+﻿@model ProductVisualizer.Models.PV_Linker
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PV_Linker</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GEOId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GEOId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndustryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndustryId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonaId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonaId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhaseId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhaseId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BIMUseId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BIMUseId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

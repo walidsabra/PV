@@ -1,0 +1,44 @@
+﻿@model   List<ProductVisualizer.Models.AllDetail>
+
+
+@{
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
+    }
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+
+
+
+
+
+<div class="container-fluid">
+   @foreach (var prod in Model)
+   {
+    <a href="@prod.ProductPage" data-toggle="modal" data-target="#myModal" class="badge active"><span class="glyphicon glyphicon-link"></span> @prod.Name</a>
+
+   }
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Name</h4>
+                </div>
+                <div class="modal-body">
+                 <h4>Coming Soon</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

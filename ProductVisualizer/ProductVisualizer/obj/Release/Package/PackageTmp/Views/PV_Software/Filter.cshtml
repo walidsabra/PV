@@ -1,0 +1,180 @@
+﻿@model   List<ProductVisualizer.Models.AllDetail>
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/flipcard.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+
+
+<div class="container-fluid">
+    <br />
+    <h2>Filter</h2>
+    <div class="row">
+        <form class="navbar-form navbar-left" role="search">
+            <div class="form-group form-inline">
+                <input type="text" id="txtSearch" class="form-control" placeholder="Search ...">
+            </div>
+
+            <li class="glyphicon glyphicon-search" id="btnSearch"></li>
+            <li class="glyphicon glyphicon-refresh" id="btnReset"></li>
+
+        </form>
+    </div>
+    <br />
+        <div class="row">
+            <div class="col-lg-2">
+                <label>Project Type</label>
+                @Html.DropDownList("PTypeDDL", ViewBag.Industry as SelectList, "", new { @class = "form-control" })
+            </div>
+            <div class="col-lg-2">
+                <label>Phase</label>
+                @Html.DropDownList("PhaseDDL", ViewBag.Phase as SelectList, "", new { @class = "form-control" })
+            </div>
+            <div class="col-lg-2">
+                <label>Persona</label>
+                @Html.DropDownList("PersonaDDL", ViewBag.Persona as SelectList, "", new { @class = "form-control" })
+            </div>
+            <div class="col-lg-2">
+                <label>GEO</label>
+                @Html.DropDownList("GEODDL", ViewBag.GEO as SelectList, "", new { @class = "form-control" })
+            </div>
+            <div class="col-lg-2">
+                <label>BIM Use</label>
+                @Html.DropDownList("BIMUSEDDL", ViewBag.BIMUSE as SelectList, "", new { @class = "form-control" })
+            </div>
+        </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-9"></div>
+        <div class="col-lg-1">
+            <button class=" btn btn-danger ", id="btnFilter">
+                <i class="glyphicon glyphicon-filter"></i>
+                Filter
+            </button>
+        </div>
+    </div>
+   
+
+
+
+    <br />
+
+    <div class="row">
+        @*<h4>Database Records</h4>*@
+        <br />
+        @foreach (var prod in Model)
+        {
+            <div class="col-md-3">
+                <div class="card-container manual-flip">
+                    <div class="card">
+                        <div class="front">
+                            <div class="card-block">
+                                <button class="btn btn-simple" rel="tooltip" title="Flip Card" onclick="rotateCard(this)">
+                                    <i class="glyphicon glyphicon-refresh"></i>
+                                </button>
+                                <a class="btn btn-simple" rel="tooltip" title="Product Page" target="_blank" href="@prod.ProductPage">
+                                    <i class="glyphicon glyphicon-globe"></i>
+                                </a>
+                                <button class="btn btn-simple" rel="tooltip" title="Edit Link">
+                                    <i class="glyphicon glyphicon-link"></i>
+                                </button>
+                                <button class="btn btn-simple" rel="tooltip" title="Comment">
+                                    <i class="glyphicon glyphicon-comment"></i>
+                                </button>
+                                <button class="btn btn-simple" rel="tooltip" title="Like">
+                                    <i class="glyphicon glyphicon-star"></i>
+                                </button>
+
+
+                                <img class="card-img" src="~/imgs/placeholder.jpg" alt="card image cap" width="262" height="140" />
+                                <h4 class="card-title">@prod.Name</h4>
+                                <p class="card-text">@prod.Description</p>
+                            </div>
+                        </div>
+                        <div class="back">
+
+                            <button class="btn btn-simple" rel="tooltip" title="Flip Card" onclick="rotateCard(this)">
+                                <i class="glyphicon glyphicon-refresh"></i>
+                            </button>
+
+                            <p class="card-text">
+                                <b>Description:</b>
+                                @prod.Description
+                            </p>
+
+                            <p>
+                                <b>Training Courses:</b> <a target="_blank" href="@prod.TrainingCourses">@prod.TrainingCourses</a> <br />
+
+                                <b>Cost:</b>@prod.Cost<br />
+                                <b>Version:</b> @prod.Version<br />
+
+                                <b>GEO:</b>@prod.GEO <br />
+                                <b>Industry:</b>@prod.Industry<br />
+                                <b>BIM Use:</b>@prod.BIMUse <br />
+                                <b>Phase:</b>@prod.Phase<br />
+                                <b>Persona:</b>@prod.Persona<br />
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <br />
+            </div>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    //$("#PTypeDDL").change(function () {
+    //    window.location = "/PV_Software/Filter?ProjType=" + $("#PTypeDDL option:selected").text();
+    //});
+    //$("#PhaseDDL").change(function () {
+    //    window.location = "/PV_Software/Filter?Phase=" + $("#PhaseDDL option:selected").text();
+    //});
+    //$("#PersonaDDL").change(function () {
+    //    window.location = "/PV_Software/Filter?Persona=" + $("#PersonaDDL option:selected").text();
+    //});
+    //$("#GEODDL").change(function () {
+    //    window.location = "/PV_Software/Filter?GEO=" + $("#GEODDL option:selected").text();
+    //});
+    //$("#BIMUSEDDL").change(function () {
+    //    window.location = "/PV_Software/Filter?BIMUse=" + $("#BIMUSEDDL option:selected").text();
+    //});
+
+    $("#btnFilter").click(function () {
+        window.location = "/PV_Software/Filter?Phase=" + $("#PhaseDDL option:selected").text() + "&Persona=" + $("#PersonaDDL option:selected").text() + "&GEO=" + $("#GEODDL option:selected").text() + "&ProjType=" + $("#PTypeDDL option:selected").text() + "&BIMUse=" + $("#BIMUSEDDL option:selected").text();
+    });
+
+    $(document).ready(function () {
+        $('[rel="tooltip"]').tooltip();
+
+    });
+
+    $("#btnSearch").click(function () {
+        window.location = "/PV_Software/Filter?SearchValue=" + $("#txtSearch").val();
+    });
+    $("#btnReset").click(function () {
+        window.location = "/PV_Software/Filter";
+    });
+
+    function rotateCard(btn) {
+        var $card = $(btn).closest('.card-container');
+        console.log($card);
+        if ($card.hasClass('hover')) {
+            $card.removeClass('hover');
+        } else {
+            $card.addClass('hover');
+        }
+    }
+</script>
+
+
+
+
+

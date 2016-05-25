@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProductVisualizerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PV_BIMUse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="BIMUsePage" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="PV_GEO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PV_Industry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="PV_Joiner">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Id1" Type="int" Nullable="false" />
+          <Property Name="Id2" Type="int" Nullable="false" />
+          <Property Name="Tables" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PV_Linker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SoftwareId" Type="int" Nullable="false" />
+          <Property Name="GEOId" Type="int" />
+          <Property Name="IndustryId" Type="int" />
+          <Property Name="PersonaId" Type="int" />
+          <Property Name="PhaseId" Type="int" />
+          <Property Name="BIMUseId" Type="int" />
+        </EntityType>
+        <EntityType Name="PV_Persona">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PV_Phase">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+          <Property Name="Standard" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PV_Software">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Features" Type="nvarchar(max)" />
+          <Property Name="Image" Type="image" />
+          <Property Name="ProductPage" Type="nvarchar" MaxLength="250" />
+          <Property Name="TrainingCourses" Type="nvarchar" MaxLength="250" />
+          <Property Name="Version" Type="nvarchar" MaxLength="10" />
+          <Property Name="Cost" Type="nvarchar" MaxLength="10" />
+          <Property Name="Language" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ProductVisualizer.dbo.AllDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Features" Type="nvarchar(max)" />
+          <Property Name="Image" Type="image" />
+          <Property Name="ProductPage" Type="nvarchar" MaxLength="250" />
+          <Property Name="TrainingCourses" Type="nvarchar" MaxLength="250" />
+          <Property Name="Version" Type="nvarchar" MaxLength="10" />
+          <Property Name="Cost" Type="nvarchar" MaxLength="10" />
+          <Property Name="Language" Type="nvarchar" MaxLength="10" />
+          <Property Name="GEO" Type="nvarchar" MaxLength="50" />
+          <Property Name="Industry" Type="nvarchar" MaxLength="50" />
+          <Property Name="Persona" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phase" Type="nvarchar" MaxLength="50" />
+          <Property Name="BIMUse" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="ProductVisualizerModelStoreContainer">
+          <EntitySet Name="PV_BIMUse" EntityType="Self.PV_BIMUse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PV_GEO" EntityType="Self.PV_GEO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PV_Industry" EntityType="Self.PV_Industry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PV_Joiner" EntityType="Self.PV_Joiner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PV_Linker" EntityType="Self.PV_Linker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PV_Persona" EntityType="Self.PV_Persona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PV_Phase" EntityType="Self.PV_Phase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PV_Software" EntityType="Self.PV_Software" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AllDetails" EntityType="Self.AllDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllDetails].[Id] AS [Id], 
+    [AllDetails].[Name] AS [Name], 
+    [AllDetails].[Description] AS [Description], 
+    [AllDetails].[Features] AS [Features], 
+    [AllDetails].[Image] AS [Image], 
+    [AllDetails].[ProductPage] AS [ProductPage], 
+    [AllDetails].[TrainingCourses] AS [TrainingCourses], 
+    [AllDetails].[Version] AS [Version], 
+    [AllDetails].[Cost] AS [Cost], 
+    [AllDetails].[Language] AS [Language], 
+    [AllDetails].[GEO] AS [GEO], 
+    [AllDetails].[Industry] AS [Industry], 
+    [AllDetails].[Persona] AS [Persona], 
+    [AllDetails].[Phase] AS [Phase], 
+    [AllDetails].[BIMUse] AS [BIMUse]
+    FROM [dbo].[AllDetails] AS [AllDetails]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProductVisualizerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ProductVisualizerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PV_BIMUse" EntityType="ProductVisualizerModel.PV_BIMUse" />
+          <EntitySet Name="PV_GEO" EntityType="ProductVisualizerModel.PV_GEO" />
+          <EntitySet Name="PV_Industry" EntityType="ProductVisualizerModel.PV_Industry" />
+          <EntitySet Name="PV_Joiner" EntityType="ProductVisualizerModel.PV_Joiner" />
+          <EntitySet Name="PV_Linker" EntityType="ProductVisualizerModel.PV_Linker" />
+          <EntitySet Name="PV_Persona" EntityType="ProductVisualizerModel.PV_Persona" />
+          <EntitySet Name="PV_Phase" EntityType="ProductVisualizerModel.PV_Phase" />
+          <EntitySet Name="PV_Software" EntityType="ProductVisualizerModel.PV_Software" />
+          <EntitySet Name="AllDetails" EntityType="ProductVisualizerModel.AllDetail" />
+        </EntityContainer>
+        <EntityType Name="PV_BIMUse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BIMUsePage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PV_GEO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PV_Industry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PV_Joiner">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Id1" Type="Int32" Nullable="false" />
+          <Property Name="Id2" Type="Int32" Nullable="false" />
+          <Property Name="Tables" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="PV_Linker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SoftwareId" Type="Int32" Nullable="false" />
+          <Property Name="GEOId" Type="Int32" />
+          <Property Name="IndustryId" Type="Int32" />
+          <Property Name="PersonaId" Type="Int32" />
+          <Property Name="PhaseId" Type="Int32" />
+          <Property Name="BIMUseId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PV_Persona">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PV_Phase">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Standard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PV_Software">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Features" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductPage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TrainingCourses" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Version" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Language" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AllDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Features" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductPage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TrainingCourses" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Version" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Language" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="GEO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Industry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Persona" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phase" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BIMUse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProductVisualizerModelStoreContainer" CdmEntityContainer="ProductVisualizerEntities">
+          <EntitySetMapping Name="PV_BIMUse">
+            <EntityTypeMapping TypeName="ProductVisualizerModel.PV_BIMUse">
+              <MappingFragment StoreEntitySet="PV_BIMUse">
+                <ScalarProperty Name="BIMUsePage" ColumnName="BIMUsePage" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PV_GEO">
+            <EntityTypeMapping TypeName="ProductVisualizerModel.PV_GEO">
+              <MappingFragment StoreEntitySet="PV_GEO">
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PV_Industry">
+            <EntityTypeMapping TypeName="ProductVisualizerModel.PV_Industry">
+              <MappingFragment StoreEntitySet="PV_Industry">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PV_Joiner">
+            <EntityTypeMapping TypeName="ProductVisualizerModel.PV_Joiner">
+              <MappingFragment StoreEntitySet="PV_Joiner">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tables" ColumnName="Tables" />
+                <ScalarProperty Name="Id2" ColumnName="Id2" />
+                <ScalarProperty Name="Id1" ColumnName="Id1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PV_Linker">
+            <EntityTypeMapping TypeName="ProductVisualizerModel.PV_Linker">
+              <MappingFragment StoreEntitySet="PV_Linker">
+                <ScalarProperty Name="BIMUseId" ColumnName="BIMUseId" />
+                <ScalarProperty Name="PhaseId" ColumnName="PhaseId" />
+                <ScalarProperty Name="PersonaId" ColumnName="PersonaId" />
+                <ScalarProperty Name="IndustryId" ColumnName="IndustryId" />
+                <ScalarProperty Name="GEOId" ColumnName="GEOId" />
+                <ScalarProperty Name="SoftwareId" ColumnName="SoftwareId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PV_Persona">
+            <EntityTypeMapping TypeName="ProductVisualizerModel.PV_Persona">
+              <MappingFragment StoreEntitySet="PV_Persona">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PV_Phase">
+            <EntityTypeMapping TypeName="ProductVisualizerModel.PV_Phase">
+              <MappingFragment StoreEntitySet="PV_Phase">
+                <ScalarProperty Name="Standard" ColumnName="Standard" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PV_Software">
+            <EntityTypeMapping TypeName="ProductVisualizerModel.PV_Software">
+              <MappingFragment StoreEntitySet="PV_Software">
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="TrainingCourses" ColumnName="TrainingCourses" />
+                <ScalarProperty Name="ProductPage" ColumnName="ProductPage" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Features" ColumnName="Features" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllDetails">
+            <EntityTypeMapping TypeName="ProductVisualizerModel.AllDetail">
+              <MappingFragment StoreEntitySet="AllDetails">
+                <ScalarProperty Name="BIMUse" ColumnName="BIMUse" />
+                <ScalarProperty Name="Phase" ColumnName="Phase" />
+                <ScalarProperty Name="Persona" ColumnName="Persona" />
+                <ScalarProperty Name="Industry" ColumnName="Industry" />
+                <ScalarProperty Name="GEO" ColumnName="GEO" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="TrainingCourses" ColumnName="TrainingCourses" />
+                <ScalarProperty Name="ProductPage" ColumnName="ProductPage" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Features" ColumnName="Features" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

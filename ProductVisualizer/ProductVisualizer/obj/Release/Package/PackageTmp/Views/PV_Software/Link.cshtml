@@ -1,0 +1,72 @@
+﻿@model ProductVisualizer.Models.PV_Software
+
+@{
+    ViewBag.Title = "Link";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Link</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>PV_Software</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Software Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Software", ViewBag.Software as SelectList, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("GEO", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("GEO", ViewBag.GEO as SelectList,"Select GEO", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Industry", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Industry", ViewBag.Industry as SelectList, "Select Industry", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Persona", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Persona", ViewBag.Persona as SelectList, "Select Persona", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("BIMUse", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("BIMUse", ViewBag.BIMUse as SelectList, "Select BIM Use", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Phase", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Phase", ViewBag.Phase as SelectList, "Select Phase", new { @class = "form-control" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Link" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

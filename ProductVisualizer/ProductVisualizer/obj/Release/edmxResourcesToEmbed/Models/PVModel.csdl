@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProductVisualizerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ProductVisualizerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PV_BIMUse" EntityType="ProductVisualizerModel.PV_BIMUse" />
+    <EntitySet Name="PV_GEO" EntityType="ProductVisualizerModel.PV_GEO" />
+    <EntitySet Name="PV_Industry" EntityType="ProductVisualizerModel.PV_Industry" />
+    <EntitySet Name="PV_Joiner" EntityType="ProductVisualizerModel.PV_Joiner" />
+    <EntitySet Name="PV_Linker" EntityType="ProductVisualizerModel.PV_Linker" />
+    <EntitySet Name="PV_Persona" EntityType="ProductVisualizerModel.PV_Persona" />
+    <EntitySet Name="PV_Phase" EntityType="ProductVisualizerModel.PV_Phase" />
+    <EntitySet Name="PV_Software" EntityType="ProductVisualizerModel.PV_Software" />
+    <EntitySet Name="AllDetails" EntityType="ProductVisualizerModel.AllDetail" />
+  </EntityContainer>
+  <EntityType Name="PV_BIMUse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BIMUsePage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PV_GEO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PV_Industry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PV_Joiner">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Id1" Type="Int32" Nullable="false" />
+    <Property Name="Id2" Type="Int32" Nullable="false" />
+    <Property Name="Tables" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="PV_Linker">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SoftwareId" Type="Int32" Nullable="false" />
+    <Property Name="GEOId" Type="Int32" />
+    <Property Name="IndustryId" Type="Int32" />
+    <Property Name="PersonaId" Type="Int32" />
+    <Property Name="PhaseId" Type="Int32" />
+    <Property Name="BIMUseId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PV_Persona">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PV_Phase">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Standard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PV_Software">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductPage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TrainingCourses" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Version" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Cost" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Language" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AllDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductPage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TrainingCourses" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Version" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Cost" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Language" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="GEO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Industry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Persona" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phase" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BIMUse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

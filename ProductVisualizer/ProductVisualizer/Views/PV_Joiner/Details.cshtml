@@ -1,0 +1,43 @@
+﻿@model ProductVisualizer.Models.PV_Joiner
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PV_Joiner</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tables)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tables)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

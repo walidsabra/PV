@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProductVisualizerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="PV_BIMUse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="BIMUsePage" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="PV_GEO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+    <Property Name="Location" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PV_Industry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PV_Joiner">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Id1" Type="int" Nullable="false" />
+    <Property Name="Id2" Type="int" Nullable="false" />
+    <Property Name="Tables" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PV_Linker">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SoftwareId" Type="int" Nullable="false" />
+    <Property Name="GEOId" Type="int" />
+    <Property Name="IndustryId" Type="int" />
+    <Property Name="PersonaId" Type="int" />
+    <Property Name="PhaseId" Type="int" />
+    <Property Name="BIMUseId" Type="int" />
+  </EntityType>
+  <EntityType Name="PV_Persona">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PV_Phase">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+    <Property Name="Standard" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PV_Software">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Features" Type="nvarchar(max)" />
+    <Property Name="Image" Type="image" />
+    <Property Name="ProductPage" Type="nvarchar" MaxLength="250" />
+    <Property Name="TrainingCourses" Type="nvarchar" MaxLength="250" />
+    <Property Name="Version" Type="nvarchar" MaxLength="10" />
+    <Property Name="Cost" Type="nvarchar" MaxLength="10" />
+    <Property Name="Language" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ProductVisualizer.dbo.AllDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Features" Type="nvarchar(max)" />
+    <Property Name="Image" Type="image" />
+    <Property Name="ProductPage" Type="nvarchar" MaxLength="250" />
+    <Property Name="TrainingCourses" Type="nvarchar" MaxLength="250" />
+    <Property Name="Version" Type="nvarchar" MaxLength="10" />
+    <Property Name="Cost" Type="nvarchar" MaxLength="10" />
+    <Property Name="Language" Type="nvarchar" MaxLength="10" />
+    <Property Name="GEO" Type="nvarchar" MaxLength="50" />
+    <Property Name="Industry" Type="nvarchar" MaxLength="50" />
+    <Property Name="Persona" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phase" Type="nvarchar" MaxLength="50" />
+    <Property Name="BIMUse" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="ProductVisualizerModelStoreContainer">
+    <EntitySet Name="PV_BIMUse" EntityType="Self.PV_BIMUse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PV_GEO" EntityType="Self.PV_GEO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PV_Industry" EntityType="Self.PV_Industry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PV_Joiner" EntityType="Self.PV_Joiner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PV_Linker" EntityType="Self.PV_Linker" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PV_Persona" EntityType="Self.PV_Persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PV_Phase" EntityType="Self.PV_Phase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PV_Software" EntityType="Self.PV_Software" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AllDetails" EntityType="Self.AllDetails" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllDetails].[Id] AS [Id], 
+    [AllDetails].[Name] AS [Name], 
+    [AllDetails].[Description] AS [Description], 
+    [AllDetails].[Features] AS [Features], 
+    [AllDetails].[Image] AS [Image], 
+    [AllDetails].[ProductPage] AS [ProductPage], 
+    [AllDetails].[TrainingCourses] AS [TrainingCourses], 
+    [AllDetails].[Version] AS [Version], 
+    [AllDetails].[Cost] AS [Cost], 
+    [AllDetails].[Language] AS [Language], 
+    [AllDetails].[GEO] AS [GEO], 
+    [AllDetails].[Industry] AS [Industry], 
+    [AllDetails].[Persona] AS [Persona], 
+    [AllDetails].[Phase] AS [Phase], 
+    [AllDetails].[BIMUse] AS [BIMUse]
+    FROM [dbo].[AllDetails] AS [AllDetails]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
