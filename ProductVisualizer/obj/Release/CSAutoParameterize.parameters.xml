@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-ProductVisualizer-20160510103142.mdf;Initial Catalog=aspnet-ProductVisualizer-20160510103142;Integrated Security=True" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\sabraw\.ADS\\documents\\visual\ studio\ 2013\\Projects\\ProductVisualizer\\ProductVisualizer\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\sabraw\.ADS\\Documents\\GitHub\\PV\\ProductVisualizer\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
   <parameter name="ProductVisualizerEntities-Web.config Connection String" description="ProductVisualizerEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.PVModel.csdl|res://*/Models.PVModel.ssdl|res://*/Models.PVModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.\sqlexpress;initial catalog=ProductVisualizer;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\sabraw\.ADS\\documents\\visual\ studio\ 2013\\Projects\\ProductVisualizer\\ProductVisualizer\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ProductVisualizerEntities']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\sabraw\.ADS\\Documents\\GitHub\\PV\\ProductVisualizer\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ProductVisualizerEntities']/@connectionString" />
   </parameter>
 </parameters>

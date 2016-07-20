@@ -160,6 +160,5 @@ C:\Users\sabraw.ADS\Documents\GitHub\PV\ProductVisualizer\bin\Microsoft.Owin.Sec
 C:\Users\sabraw.ADS\Documents\GitHub\PV\ProductVisualizer\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\sabraw.ADS\Documents\GitHub\PV\ProductVisualizer\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\sabraw.ADS\Documents\GitHub\PV\ProductVisualizer\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\sabraw.ADS\Documents\GitHub\PV\ProductVisualizer\obj\Debug\ProductVisualizer.csprojResolveAssemblyReference.cache
 C:\Users\sabraw.ADS\Documents\GitHub\PV\ProductVisualizer\obj\Debug\ProductVisualizer.dll
 C:\Users\sabraw.ADS\Documents\GitHub\PV\ProductVisualizer\obj\Debug\ProductVisualizer.pdb

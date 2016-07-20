@@ -108,16 +108,23 @@
                             </p>
 
                             <p>
-                                <b>Training Courses:</b> <a target="_blank" href="@prod.TrainingCourses">@prod.TrainingCourses</a> <br />
+                                <b>Learn It:</b> <a target="_blank" href="@prod.TrainingCourses">@prod.TrainingCourses</a> <br />
 
-                                <b>Cost:</b>@prod.Cost<br />
-                                <b>Version:</b> @prod.Version<br />
+                                <b>Daily Token Rate:</b>@prod.Cost<br />
+                                @*<b>Version:</b> @prod.Version<br />*@
 
                                 <b>GEO:</b>@prod.GEO <br />
-                                <b>Industry:</b>@prod.Industry<br />
+                                @*<b>Industry:</b>@prod.Industry<br />*@
                                 <b>BIM Use:</b>@prod.BIMUse <br />
                                 <b>Phase:</b>@prod.Phase<br />
-                                <b>Persona:</b>@prod.Persona<br />
+                                <b>Persona:</b>@prod.Persona<br/>
+                                <a class="btn btn-simple" rel="tooltip" title="Get It" target="_blank" href="#">
+                                    <i class="glyphicon glyphicon-cloud-download"></i> Get It
+                                </a>
+                                <a class="btn btn-simple" rel="tooltip" title="More..." target="_blank" href="@prod.ProductPage">
+                                    <i class="glyphicon glyphicon-bookmark"></i> More...
+                                </a>
+                                <br/>
                             </p>
                         </div>
 
