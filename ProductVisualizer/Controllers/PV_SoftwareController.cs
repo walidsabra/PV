@@ -69,7 +69,10 @@ namespace ProductVisualizer.Controllers
             if (!string.IsNullOrEmpty(c2))
                 lstProdcut = lstProdcut.Where(ex => ex.Persona.Contains(c2)).AsQueryable();
 
-
+            if (lstProdcut.Count() == 0)
+            {
+                return null;
+            }
 
             return View(lstProdcut.ToList());
         }

@@ -5,8 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     //Layout = null;
     }
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<script src="~/Scripts/jquery-1.10.2.js"></script>
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.js"></script>*@
 
 
 
@@ -32,7 +32,7 @@
 
 
 <div class="container-fluid">
-    <h2>Persona/Phase Matrix</h2>
+    <h2>Phase/Discipline Matrix</h2>
 
         <form class="navbar-form navbar-left" role="search">
                 <label>Project Type</label>
@@ -88,7 +88,6 @@
     $("#PTypeDDL").change(function () {
         window.location = "/PV_Software/Matrix?ProjType=" + $("#PTypeDDL option:selected").text();
     });
-
 
 
     $("#btnReset").click(function () {
