@@ -46,7 +46,7 @@ namespace ProductVisualizer.Controllers
         public ActionResult Cell(string c1, string c2)
         {
             string ProjType;
-            BindForLinking();
+            //BindForLinking();
 
 
                 if (Session["SelectedProjectType"] != null)
@@ -78,9 +78,10 @@ namespace ProductVisualizer.Controllers
         }
 
         // GET: PV_Software
-        public ActionResult Matrix(string c1, string c2, string ProjType)
+        public ActionResult Matrix(string ProjType)
         {
-            BindForLinking();
+            BindForLinking(ProjType,"","","","");
+            BindForMatrix(ProjType, "", "", "", "");
 
             if (ProjType == null)
             {
@@ -100,11 +101,11 @@ namespace ProductVisualizer.Controllers
             else
                 lstProdcut = db.AllDetails.Where(ex => ex.Industry.Contains(ProjType)).AsQueryable();
 
-            if (!string.IsNullOrEmpty(c1))
-                lstProdcut = lstProdcut.Where(ex => ex.Phase.Contains(c1)).AsQueryable();
+            //if (!string.IsNullOrEmpty(c1))
+            //    lstProdcut = lstProdcut.Where(ex => ex.Phase.Contains(c1)).AsQueryable();
 
-            if (!string.IsNullOrEmpty(c2))
-                lstProdcut = lstProdcut.Where(ex => ex.Persona.Contains(c2)).AsQueryable();
+            //if (!string.IsNullOrEmpty(c2))
+            //    lstProdcut = lstProdcut.Where(ex => ex.Persona.Contains(c2)).AsQueryable();
 
 
 
@@ -114,7 +115,12 @@ namespace ProductVisualizer.Controllers
         // GET: PV_Software
         public ActionResult Filter(string SearchValue, string ProjType, string Phase, string BIMUse, string Persona, string GEO)
         {
-            BindForLinking();
+        
+
+
+
+
+            BindForLinking(ProjType, GEO,Phase,Persona,BIMUse);
             IQueryable<AllDetail> lstProdcut;
             if (string.IsNullOrEmpty(SearchValue))
                 lstProdcut = db.AllDetails.AsQueryable();
@@ -160,7 +166,7 @@ namespace ProductVisualizer.Controllers
         // GET: PV_Software/Link
         public ActionResult Link()
         {
-            BindForLinking();
+            BindForLinker();
 
             return View();
         }
@@ -207,7 +213,7 @@ namespace ProductVisualizer.Controllers
                 db.PV_Linker.Add(LinkerItem);
                 db.SaveChanges();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Link");
             }
 
             return View();
@@ -216,7 +222,7 @@ namespace ProductVisualizer.Controllers
         // GET: PV_Software/Create
         public ActionResult Create()
         {
-            BindForLinking();
+            BindForLinker();
             return View();
         }
 
@@ -304,7 +310,27 @@ namespace ProductVisualizer.Controllers
             base.Dispose(disposing);
         }
 
-        private void BindForLinking()
+        private void BindForLinking(string ProjType, string GEO, string Phase, string Persona, string BIMUse)
+        {
+            ViewBag.Software = new SelectList(db.PV_Software.ToList(), "Id", "Name");
+            ViewBag.GEO = new SelectList(db.PV_GEO.ToList(), "Name", "Name", GEO);
+            ViewBag.Industry = new SelectList(db.PV_Industry.ToList(), "Name", "Name", ProjType);
+            ViewBag.Phase = new SelectList(db.PV_Phase.ToList(), "Name", "Name", Phase);
+            ViewBag.Persona = new SelectList(db.PV_Persona.ToList(), "Name", "Name", Persona);
+            ViewBag.BIMUse = new SelectList(db.PV_BIMUse.ToList(), "Name", "Name", BIMUse);
+        }
+
+        private void BindForMatrix(string ProjType, string GEO, string Phase, string Persona, string BIMUse)
+        {
+            ViewBag.LinkedSoftware = new SelectList(db.AllDetails.Select(x=>x.Id).Distinct().ToList());
+            ViewBag.LinkedGEO = new SelectList(db.AllDetails.Select(x => x.GEO).Distinct().ToList());
+            ViewBag.LinkedIndustry = new SelectList(db.AllDetails.Select(x=>x.Industry).Distinct().ToList());
+            ViewBag.LinkedPhase = new SelectList(db.AllDetails.Select(x => x.Phase).Distinct().ToList());
+            ViewBag.LinkedPersona = new SelectList(db.AllDetails.Select(x => x.Persona).Distinct().ToList());
+            ViewBag.LinkedBIMUse = new SelectList(db.AllDetails.Select(x => x.BIMUse).Distinct().ToList());
+        }
+
+        private void BindForLinker()
         {
             ViewBag.Software = new SelectList(db.PV_Software.ToList(), "Id", "Name");
             ViewBag.GEO = new SelectList(db.PV_GEO.ToList(), "Id", "Name");
@@ -314,5 +340,11 @@ namespace ProductVisualizer.Controllers
             ViewBag.BIMUse = new SelectList(db.PV_BIMUse.ToList(), "Id", "Name");
         }
 
+        //private void BindForMatrix(string _ProjType)
+        //{
+        //    ViewBag.Industry = new SelectList(db.PV_Industry.ToList(), "Name", "Name", _ProjType);
+        //    ViewBag.Phase = new SelectList(db.PV_Phase.ToList(), "Name", "Name");
+        //    ViewBag.Persona = new SelectList(db.PV_Persona.ToList(), "Name", "Name");
+        //}
     }
 }

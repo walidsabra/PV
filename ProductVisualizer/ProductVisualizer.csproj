@@ -345,6 +345,7 @@
     <Content Include="Views\PV_Linker\Details.cshtml" />
     <Content Include="Views\PV_Linker\Edit.cshtml" />
     <Content Include="Views\PV_Linker\Index.cshtml" />
+    <Content Include="Views\PV_Software\_SoftwareCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

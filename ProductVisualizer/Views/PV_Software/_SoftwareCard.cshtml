@@ -1,0 +1,70 @@
+﻿@model ProductVisualizer.Models.PV_Software
+
+
+
+<div class="col-md-3">
+    <div class="card-container manual-flip">
+        <div class="card">
+            <div class="front">
+                <div class="card-block">
+                    <button class="btn btn-simple" rel="tooltip" title="Flip Card" onclick="rotateCard(this)">
+                        <i class="glyphicon glyphicon-refresh"></i>
+                    </button>
+                    <a class="btn btn-simple" rel="tooltip" title="Product Page" target="_blank" href="@Model.ProductPage">
+                        <i class="glyphicon glyphicon-globe"></i>
+                    </a>
+                    <button class="btn btn-simple" rel="tooltip" title="Edit" onclick="">
+                        <i class="glyphicon glyphicon-edit"></i>
+                    </button>
+
+
+
+                    <img class="card-img" src="~/imgs/placeholder.jpg" alt="card image cap" width="262" height="140" />
+                    <h4 class="card-title">@Model.Name</h4>
+                    <p class="card-text">@Model.Description</p>
+                </div>
+            </div>
+            <div class="back">
+
+                <button class="btn btn-simple" rel="tooltip" title="Flip Card" onclick="rotateCard(this)">
+                    <i class="glyphicon glyphicon-refresh"></i>
+                </button>
+
+                <p class="card-text">
+                    <b>Description:</b>
+                    @Model.Description
+                </p>
+
+                <p>
+                    <b>Learn It:</b> <a target="_blank" href="@Model.TrainingCourses">@Model.TrainingCourses</a> <br />
+
+                    <b>Daily Token Rate:</b>@Model.Cost<br />
+                    @*<b>Version:</b> @prod.Version<br />*@
+
+
+                    <a class="btn btn-simple" rel="tooltip" title="Get It" target="_blank" href="#">
+                        <i class="glyphicon glyphicon-cloud-download"></i> Get It
+                    </a>
+                    <a class="btn btn-simple" rel="tooltip" title="More..." target="_blank" href="@Model.ProductPage">
+                        <i class="glyphicon glyphicon-bookmark"></i> More...
+                    </a>
+                    <br />
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <br />
+</div>
+
+<script type="text/javascript">
+    function rotateCard(btn) {
+        var $card = $(btn).closest('.card-container');
+        console.log($card);
+        if ($card.hasClass('hover')) {
+            $card.removeClass('hover');
+        } else {
+            $card.addClass('hover');
+        }
+    }
+</script>

@@ -5,6 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/flipcard.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
 <h2>Index</h2>
 
 <p>
@@ -43,7 +47,7 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+    @*<tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
@@ -76,7 +80,9 @@
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
-    </tr>
+    </tr>*@
+    
+   @Html.Partial("_SoftwareCard", item)
 }
 
 </table>

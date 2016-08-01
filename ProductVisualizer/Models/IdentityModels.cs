@@ -29,5 +29,7 @@ namespace ProductVisualizer.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<ProductVisualizer.Models.PV_Software> PV_Software { get; set; }
     }
 }

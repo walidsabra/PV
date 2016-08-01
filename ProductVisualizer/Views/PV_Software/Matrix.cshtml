@@ -31,35 +31,38 @@
 
 
 
-<div class="container-fluid">
+<div class="container">
     <h2>Phase/Discipline Matrix</h2>
-
+    <div class="row">
         <form class="navbar-form navbar-left" role="search">
-                <label>Project Type</label>
-                @Html.DropDownList("PTypeDDL", ViewBag.Industry as SelectList, "", new { @class = "form-control form-inline" })
-            
-                <a id="btnReset" > <span class="glyphicon  glyphicon-refresh"></span> </a>
-                
-            </form>
+            <label>Market Sector</label>
+            @Html.DropDownList("PTypeDDL", ViewBag.LinkedIndustry as SelectList, "Select Market Sector", new { @class = "form-control form-inline" })
+
+            <a id="btnReset"> <span class="glyphicon  glyphicon-refresh"></span> </a>
+
+        </form>
+    </div>
+    <div class="row">
+        <form class="navbar-form navbar-left" role="search">
 
             <div class="row">
                 <div class="table-responsive ">
                     <table class="table table-bordered table-striped">
                         <tr>
                             <th>#</th>
-                            @foreach (var pers in ViewBag.Persona)
+                            @foreach (var pers in ViewBag.LinkedPersona)
                             {
                                 <th>@pers.Text</th>
                             }
                         </tr>
 
-                        @foreach (var Ph in ViewBag.Phase)
+                        @foreach (var Ph in ViewBag.LinkedPhase)
                         {
                             <tr>
                                 <td> <b>@Ph.Text</b></td>
-                                @for (int i = 0; i < Enumerable.Count(ViewBag.Persona); i++)
+                                @for (int i = 0; i < Enumerable.Count(ViewBag.LinkedPersona); i++)
                                 {
-                                    SelectList A = ViewBag.Persona as SelectList;
+                                    SelectList A = ViewBag.LinkedPersona as SelectList;
                                     <td>
                                         <div>
                                             @{Html.RenderAction("Cell", "PV_Software", new { c1 = @Ph.Text, c2 = @A.ElementAt(i).Text });}
@@ -73,20 +76,25 @@
                     </table>
                 </div>
             </div>
-            <div class="row">
-
-
-
-
-
-            </div>
+        </form>
     </div>
+        <div class="row">
+
+
+
+
+
+        </div>
+    </div>
+
+
+
 
 
 <script type="text/javascript">
 
     $("#PTypeDDL").change(function () {
-        window.location = "/PV_Software/Matrix?ProjType=" + $("#PTypeDDL option:selected").text();
+        window.location = "/PV_Software/Matrix?ProjType=" +encodeURIComponent($("#PTypeDDL option:selected").val());
     });
 
 

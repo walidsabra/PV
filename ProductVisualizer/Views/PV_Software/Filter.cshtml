@@ -28,7 +28,7 @@
     <br />
         <div class="row">
             <div class="col-lg-2">
-                <label>Project Type</label>
+                <label>Market Sector</label>
                 @Html.DropDownList("PTypeDDL", ViewBag.Industry as SelectList, "", new { @class = "form-control" })
             </div>
             <div class="col-lg-2">
@@ -155,7 +155,7 @@
     //});
 
     $("#btnFilter").click(function () {
-        window.location = "/PV_Software/Filter?Phase=" + $("#PhaseDDL option:selected").text() + "&Persona=" + $("#PersonaDDL option:selected").text() + "&GEO=" + $("#GEODDL option:selected").text() + "&ProjType=" + $("#PTypeDDL option:selected").text() + "&BIMUse=" + $("#BIMUSEDDL option:selected").text();
+        window.location = "/PV_Software/Filter?Phase=" + encodeURIComponent($("#PhaseDDL option:selected").text()) + "&Persona=" + $("#PersonaDDL option:selected").text() + "&GEO=" + $("#GEODDL option:selected").text() + "&ProjType=" + encodeURIComponent($("#PTypeDDL option:selected").text()) + "&BIMUse=" + $("#BIMUSEDDL option:selected").text();
     });
 
     $(document).ready(function () {
